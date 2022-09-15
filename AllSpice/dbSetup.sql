@@ -21,8 +21,8 @@ CREATE TABLE IF NOT EXISTS recipes(
 DROP TABLE recipes;
 
 -- NOTE creates new data entry
-INSERT INTO recipes(title, subtitle, img, category)
-VALUES('Spooky Cupcakes', 'Now made with Gluten!', 'https://images.unsplash.com/photo-1638258682206-0a95e15e4030?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fGhhbGxvd2VlbiUyMGN1cGNha2VzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60', 'Dessert');
+INSERT INTO recipes(title, subtitle, img, category, creatorId)
+VALUES('Spooky Cupcakes', 'Now made with Gluten!', 'https://images.unsplash.com/photo-1638258682206-0a95e15e4030?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fGhhbGxvd2VlbiUyMGN1cGNha2VzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60', 'Dessert', '63059889588984525e6be97d');
 
 -- NOTE join tables (recipes and accounts)
 SELECT * FROM recipes r
