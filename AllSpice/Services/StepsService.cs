@@ -4,15 +4,19 @@ using AllSpice.Repositories;
 
 namespace AllSpice.Services
 {
-  public class StepsService {
+  public class StepsService
+  {
     private readonly StepsRepository _stepsRepo;
-    public StepsService(StepsRepository stepsRepo) {
+    public StepsService(StepsRepository stepsRepo)
+    {
       _stepsRepo = stepsRepo;
     }
-    internal List<Step> GetAll() {
+    internal List<Step> GetAll()
+    {
       return _stepsRepo.GetAll();
     }
-    internal Step Create(Step newStep) {
+    internal Step Create(Step newStep)
+    {
       return _stepsRepo.Create(newStep);
     }
   }

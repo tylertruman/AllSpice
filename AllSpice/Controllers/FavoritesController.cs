@@ -7,16 +7,20 @@ using CodeWorks.Auth0Provider;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AllSpice.Controllers {
+namespace AllSpice.Controllers
+{
   [ApiController]
   [Route("api/[controller]")]
-  public class FavoritesController : ControllerBase {
+  public class FavoritesController : ControllerBase
+  {
     private readonly FavoritesService _favoritesService;
-    public FavoritesController(FavoritesService favoritesService) {
+    public FavoritesController(FavoritesService favoritesService)
+    {
       _favoritesService = favoritesService;
     }
     [HttpGet]
-    public ActionResult<List<Favorite>> GetAll() {
+    public ActionResult<List<Favorite>> GetAll()
+    {
       try
       {
         List<Favorite> favorites = _favoritesService.GetAll();
@@ -29,7 +33,8 @@ namespace AllSpice.Controllers {
     }
     [HttpPost]
     [Authorize]
-    public async Task<ActionResult<Favorite>> Create([FromBody] Favorite newFavorite) {
+    public async Task<ActionResult<Favorite>> Create([FromBody] Favorite newFavorite)
+    {
       try
       {
         Account userInfo = await HttpContext.GetUserInfoAsync<Account>();

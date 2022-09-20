@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS recipes(
 -- NOTE deletes the table and all of its content.
 DROP TABLE recipes;
 
--- NOTE creates new data entry
+-- NOTE creates new data entry into recipes
 INSERT INTO recipes(title, subtitle, img, category, creatorId)
 VALUES('Spooky Cupcakes', 'Now made with Gluten!', 'https://images.unsplash.com/photo-1638258682206-0a95e15e4030?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fGhhbGxvd2VlbiUyMGN1cGNha2VzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60', 'Dessert', '63059889588984525e6be97d');
 
@@ -33,3 +33,7 @@ SELECT * FROM recipes r
 JOIN ingredients i ON r.id = i.recipeId
 JOIN steps s ON r.id = s.recipeId
 JOIN accounts a ON a.id = r.creatorId;
+
+-- NOTE find all recipes
+SELECT * FROM recipes;
+

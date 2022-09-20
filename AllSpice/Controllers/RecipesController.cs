@@ -7,16 +7,20 @@ using CodeWorks.Auth0Provider;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AllSpice.Controllers {
+namespace AllSpice.Controllers
+{
   [ApiController]
   [Route("api/[controller]")]
-  public class RecipesController : ControllerBase {
+  public class RecipesController : ControllerBase
+  {
     private readonly RecipesService _recipesService;
-    public RecipesController(RecipesService recipesService) {
+    public RecipesController(RecipesService recipesService)
+    {
       _recipesService = recipesService;
     }
     [HttpGet]
-    public ActionResult<List<Recipe>> GetAll() {
+    public ActionResult<List<Recipe>> GetAll()
+    {
       try
       {
         List<Recipe> recipes = _recipesService.GetAll();
@@ -29,7 +33,8 @@ namespace AllSpice.Controllers {
     }
     [HttpPost]
     [Authorize]
-    public async Task<ActionResult<Recipe>> Create([FromBody] Recipe newRecipe) {
+    public async Task<ActionResult<Recipe>> Create([FromBody] Recipe newRecipe)
+    {
       try
       {
         Account userInfo = await HttpContext.GetUserInfoAsync<Account>();

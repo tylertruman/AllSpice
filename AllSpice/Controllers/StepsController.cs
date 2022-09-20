@@ -7,16 +7,20 @@ using CodeWorks.Auth0Provider;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AllSpice.Controllers {
+namespace AllSpice.Controllers
+{
   [ApiController]
   [Route("api/[controller]")]
-  public class StepsController : ControllerBase {
+  public class StepsController : ControllerBase
+  {
     private readonly StepsService _stepsService;
-    public StepsController(StepsService stepsService) {
+    public StepsController(StepsService stepsService)
+    {
       _stepsService = stepsService;
     }
     [HttpGet]
-    public ActionResult<List<Step>> GetAll() {
+    public ActionResult<List<Step>> GetAll()
+    {
       try
       {
         List<Step> steps = _stepsService.GetAll();
@@ -29,7 +33,8 @@ namespace AllSpice.Controllers {
     }
     [HttpPost]
     [Authorize]
-    public async Task<ActionResult<Step>> Create([FromBody] Step newStep) {
+    public async Task<ActionResult<Step>> Create([FromBody] Step newStep)
+    {
       try
       {
         Account userInfo = await HttpContext.GetUserInfoAsync<Account>();

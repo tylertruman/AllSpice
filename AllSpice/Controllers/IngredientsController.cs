@@ -11,13 +11,16 @@ namespace AllSpice.Controllers
 {
   [ApiController]
   [Route("api/[controller]")]
-  public class IngredientsController : ControllerBase {
+  public class IngredientsController : ControllerBase
+  {
     private readonly IngredientsService _ingredientsService;
-    public IngredientsController(IngredientsService ingredientsService) {
+    public IngredientsController(IngredientsService ingredientsService)
+    {
       _ingredientsService = ingredientsService;
     }
     [HttpGet]
-    public ActionResult<List<Ingredient>> GetAll() {
+    public ActionResult<List<Ingredient>> GetAll()
+    {
       try
       {
         List<Ingredient> ingredients = _ingredientsService.GetAll();
@@ -30,7 +33,8 @@ namespace AllSpice.Controllers
     }
     [HttpPost]
     [Authorize]
-    public async Task<ActionResult<Ingredient>> Create([FromBody] Ingredient newIngredient) {
+    public async Task<ActionResult<Ingredient>> Create([FromBody] Ingredient newIngredient)
+    {
       try
       {
         Account userInfo = await HttpContext.GetUserInfoAsync<Account>();
