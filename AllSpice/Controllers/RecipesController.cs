@@ -29,7 +29,7 @@ namespace AllSpice.Controllers {
     }
     [HttpPost]
     [Authorize]
-    public async Task<ActionResult<Recipe>> Create([FromBody] RecipesController newRecipe) {
+    public async Task<ActionResult<Recipe>> Create([FromBody] Recipe newRecipe) {
       try
       {
         Account userInfo = await HttpContext.GetUserInfoAsync<Account>();
